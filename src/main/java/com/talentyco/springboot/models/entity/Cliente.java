@@ -11,8 +11,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Table(name = "cliente")
+
 @Entity
+@Table(name = "clientes")
 public class Cliente implements Serializable {
 
     @Id
@@ -36,7 +37,7 @@ public class Cliente implements Serializable {
     @NotNull
     @Temporal(TemporalType.DATE)
     @Column(name = "create_at")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date createAt;
 
     @Column(name = "foto")
