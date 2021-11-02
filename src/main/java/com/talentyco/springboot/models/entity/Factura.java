@@ -1,12 +1,20 @@
 package com.talentyco.springboot.models.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+//@Data
+//@AllArgsConstructor
+//@Getter
+//@Setter
 @Entity
 @Table(name = "facturas")
 public class Factura implements Serializable {
@@ -19,8 +27,8 @@ public class Factura implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(name = "obvservacion")
-    private String obvservacion;
+    @Column(name = "observacion")
+    private String observacion;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "create_at")
@@ -34,37 +42,22 @@ public class Factura implements Serializable {
     @JoinColumn(name = "factura_id")
     private List<ItemFactura> items;
 
+    public Factura() {
+        this.items = new ArrayList<ItemFactura>();
+
+    }
+
     @PrePersist
     public void  prePersist() {
         createAt = new Date();
     }
 
-    public Factura() {
-        this.items = new ArrayList<ItemFactura>();
+    public Long getId() {
+        return id;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Date getCreateAt() {
-        return createAt;
-    }
-
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
-    }
-
-    public String getObvservacion() {
-        return obvservacion;
-    }
-
-    public void setObvservacion(String obvservacion) {
-        this.obvservacion = obvservacion;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDescripcion() {
@@ -75,12 +68,28 @@ public class Factura implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Long getId() {
-        return id;
+    public String getObservacion() {
+        return observacion;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public List<ItemFactura> getItems() {
@@ -100,11 +109,11 @@ public class Factura implements Serializable {
 
         int size = items.size();
 
-        for (int  i = 0; i < size; i++ ) {
+        for (int i = 0; i < size; i++) {
             total += items.get(i).calcularImporte();
         }
         return total;
     }
 
-
+    private static final long serialVersionUID = 1L;
 }

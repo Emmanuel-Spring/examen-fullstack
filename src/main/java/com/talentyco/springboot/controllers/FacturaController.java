@@ -36,9 +36,11 @@ public class FacturaController {
 
 	@Autowired
 	private IClienteService clienteService;
+
 	
 	private final Logger log = LoggerFactory.getLogger(getClass());
-	
+
+
 	@GetMapping("/ver/{id}")
 	public String ver(@PathVariable(value="id") Long id, 
 			Model model,
@@ -55,6 +57,9 @@ public class FacturaController {
 		
 		return "factura/ver";
 	}
+
+
+
 
 	@GetMapping("/form/{clienteId}")
 	public String crear(@PathVariable(value = "clienteId") Long clienteId, Map<String, Object> model,
@@ -76,10 +81,16 @@ public class FacturaController {
 		return "factura/form";
 	}
 
+
+
+
 	@GetMapping(value = "/cargar-productos/{term}", produces = { "application/json" })
 	public @ResponseBody List<Producto> cargarProductos(@PathVariable String term) {
 		return clienteService.findByNombre(term);
 	}
+
+
+
 	
 	@PostMapping("/form")
 	public String guardar(@Valid Factura factura, 
@@ -118,7 +129,9 @@ public class FacturaController {
 
 		return "redirect:/ver/" + factura.getCliente().getId();
 	}
-	
+
+
+
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable(value="id") Long id, RedirectAttributes flash) {
 		
