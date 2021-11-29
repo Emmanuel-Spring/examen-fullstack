@@ -1,17 +1,17 @@
 package com.talentyco.springboot.models.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Java Title
- *
- * @author Emmanuel Nieto Muñoz
- * @version: xx/10/2021/1.0
- * @see <a href = "" />  </a>
- */
-
+@Data
+@AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "productos")
 public class Producto implements Serializable {

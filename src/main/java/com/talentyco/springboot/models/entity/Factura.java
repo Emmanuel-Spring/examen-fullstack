@@ -1,9 +1,6 @@
 package com.talentyco.springboot.models.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,10 +8,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Data
-//@AllArgsConstructor
-//@Getter
-//@Setter
+@Data
+@AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "facturas")
 public class Factura implements Serializable {

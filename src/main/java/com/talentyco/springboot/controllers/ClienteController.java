@@ -9,7 +9,7 @@ import javax.validation.Valid;
 import com.talentyco.springboot.models.entity.Cliente;
 import com.talentyco.springboot.models.services.IClienteService;
 import com.talentyco.springboot.models.services.IUploadFileService;
-import com.talentyco.springboot.util.paginato.PageRender;
+import com.talentyco.springboot.util.paginator.PageRender;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -91,6 +91,7 @@ public class ClienteController {
 		model.addAttribute("page", pageRender);
 		return "listar";
 	}
+
 
 
 

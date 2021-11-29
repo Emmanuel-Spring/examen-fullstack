@@ -29,6 +29,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 
+
 @Controller
 @RequestMapping("/factura")
 @SessionAttributes("factura")
@@ -71,7 +72,6 @@ public class FacturaController {
 			flash.addFlashAttribute("error", "El cliente no existe en la base de datos");
 			return "redirect:/listar";
 		}
-
 		Factura factura = new Factura();
 		factura.setCliente(cliente);
 

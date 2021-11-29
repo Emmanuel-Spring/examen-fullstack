@@ -1,5 +1,9 @@
 package com.talentyco.springboot.models.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -11,7 +15,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+@Data
+@AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "clientes")
 public class Cliente implements Serializable {

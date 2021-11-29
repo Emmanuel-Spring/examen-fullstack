@@ -14,13 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Java Title
- *
- * @author Emmanuel Nieto Muñoz
- * @version: xx/10/2021/1.0
- * @see <a href = "" />  </a>
- */
 
 @Service
 public class ClienteServiceImpl implements IClienteService{

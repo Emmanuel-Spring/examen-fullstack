@@ -1,5 +1,10 @@
 package com.talentyco.springboot.models.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -11,6 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Data
+@AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "facturas_items")
 public class ItemFactura implements Serializable {
@@ -24,6 +32,10 @@ public class ItemFactura implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id")
     private Producto producto;
+
+    public ItemFactura() {
+
+    }
 
     public Long getId() {
         return id;
@@ -52,6 +64,8 @@ public class ItemFactura implements Serializable {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
+
 
     private static final long serialVersionUID = 1L;
 
